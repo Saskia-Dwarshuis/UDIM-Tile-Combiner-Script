@@ -6,7 +6,7 @@
 
 This script was written and tested on only a Windows computer. I have done my best to make the script work for MacOS, but there may be issues. 
 
-The script was only tested on Photoshop CC versions 2019 and 2020, but it should work on Photoshop versions reaching back to CS6, if not further— but this is not ensured. 
+The script was only tested on Photoshop CC versions 2019 and 2020, but it should work on Photoshop versions reaching back to CS6, if not further— however, this is not ensured. 
 
 ## Installation Instructions
 
