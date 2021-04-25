@@ -1,0 +1,1161 @@
+// Script UI setup, created with ScriptUI Dialog Builder (https://scriptui.joonas.me/)
+
+{
+
+// MASTERWINDOW
+// ============
+var MASTERWindow = new Window("dialog"); 
+    MASTERWindow.text = "UDIM Tile Combiner"; 
+    MASTERWindow.orientation = "row"; 
+    MASTERWindow.alignChildren = ["center","top"]; 
+    MASTERWindow.spacing = 10; 
+    MASTERWindow.margins = 15; 
+
+// COMBINERGROUP
+// =============
+var CombinerGroup = MASTERWindow.add("group", undefined, {name: "CombinerGroup"}); 
+    CombinerGroup.orientation = "column"; 
+    CombinerGroup.alignChildren = ["left","center"]; 
+    CombinerGroup.spacing = 10; 
+    CombinerGroup.margins = 0; 
+
+// SPSETTINGSHEADER
+// ================
+var SPSettingsHeader = CombinerGroup.add("panel", undefined, undefined, {name: "SPSettingsHeader"}); 
+    SPSettingsHeader.text = "Substance Painter Settings"; 
+    SPSettingsHeader.preferredSize.width = 525; 
+    SPSettingsHeader.orientation = "row"; 
+    SPSettingsHeader.alignChildren = ["left","top"]; 
+    SPSettingsHeader.spacing = 10; 
+    SPSettingsHeader.margins = [10,15,10,10]; 
+
+var SPSettingsText = SPSettingsHeader.add("group"); 
+    SPSettingsText.orientation = "column"; 
+    SPSettingsText.alignChildren = ["left","center"]; 
+    SPSettingsText.spacing = 0; 
+
+    SPSettingsText.add("statictext", undefined, "• Add an alpha channel to each material channel exported, with Opacity or 2D View used as the alpha value.", {name: "SPSettingsText"}); 
+    SPSettingsText.add("statictext", undefined, "• Dilation + Transparent, with a low dilation value.", {name: "SPSettingsText"}); 
+
+// COMBINERSETTINGSGROUP
+// =====================
+var CombinerSettingsGroup = CombinerGroup.add("group", undefined, {name: "CombinerSettingsGroup"}); 
+    CombinerSettingsGroup.orientation = "column"; 
+    CombinerSettingsGroup.alignChildren = ["left","center"]; 
+    CombinerSettingsGroup.spacing = 10; 
+    CombinerSettingsGroup.margins = 0; 
+
+// COMBINERSETTINGSHEADER
+// ======================
+var CombinerSettingsHeader = CombinerSettingsGroup.add("panel", undefined, undefined, {name: "CombinerSettingsHeader"}); 
+    CombinerSettingsHeader.text = "Tile Combiner Settings"; 
+    CombinerSettingsHeader.orientation = "column"; 
+    CombinerSettingsHeader.alignChildren = ["left","top"]; 
+    CombinerSettingsHeader.spacing = 10; 
+    CombinerSettingsHeader.margins = [10,15,10,10]; 
+
+// SOURCEFOLDERHEADER
+// ==================
+var SourceFolderHeader = CombinerSettingsHeader.add("panel", undefined, undefined, {name: "SourceFolderHeader"}); 
+    SourceFolderHeader.text = "Source Folder"; 
+    SourceFolderHeader.preferredSize.width = 510; 
+    SourceFolderHeader.orientation = "row"; 
+    SourceFolderHeader.alignChildren = ["left","top"]; 
+    SourceFolderHeader.spacing = 10; 
+    SourceFolderHeader.margins = [10,15,10,10]; 
+
+var SelectSFButton = SourceFolderHeader.add("button", undefined, undefined, {name: "SelectSFButton"}); 
+    SelectSFButton.text = "Select Source Folder"; 
+    SelectSFButton.preferredSize.width = 175; 
+    SelectSFButton.preferredSize.height = 25; 
+
+// SFGROUP
+// =======
+var SFGroup = SourceFolderHeader.add("group", undefined, {name: "SFGroup"}); 
+    SFGroup.orientation = "row"; 
+    SFGroup.alignChildren = ["left","center"]; 
+    SFGroup.spacing = 10; 
+    SFGroup.margins = 0; 
+
+var SFLocationText = SFGroup.add("statictext", undefined, undefined, {name: "SFLocationText", truncate: "middle"}); 
+    SFLocationText.text = "Source Folder Location"; 
+    SFLocationText.preferredSize.width = 320; 
+    SFLocationText.preferredSize.height = 25;
+	SFLocationText.enabled = false;
+
+// SORTINGSETTINGSHEADER
+// =====================
+var SortingSettingsHeader = CombinerSettingsHeader.add("panel", undefined, undefined, {name: "SortingSettingsHeader"}); 
+    SortingSettingsHeader.text = "Sorting Settings"; 
+    SortingSettingsHeader.preferredSize.width = 528; 
+    SortingSettingsHeader.preferredSize.height = 130; 
+    SortingSettingsHeader.orientation = "row"; 
+    SortingSettingsHeader.alignChildren = ["left","top"]; 
+    SortingSettingsHeader.spacing = 10; 
+    SortingSettingsHeader.margins = [10,15,10,10]; 
+
+// TILESETTINGSGROUP
+// =================
+var TileSettingsGroup = SortingSettingsHeader.add("group", undefined, {name: "TileSettingsGroup"}); 
+    TileSettingsGroup.preferredSize.height = 90; 
+    TileSettingsGroup.orientation = "column"; 
+    TileSettingsGroup.alignChildren = ["left","center"]; 
+    TileSettingsGroup.spacing = 10; 
+    TileSettingsGroup.margins = 0; 
+
+// FIRSTSORTINGSETTING
+// ===================
+var FirstSortingSetting = TileSettingsGroup.add("group", undefined, {name: "FirstSortingSetting"}); 
+    FirstSortingSetting.preferredSize.height = 20; 
+    FirstSortingSetting.orientation = "row"; 
+    FirstSortingSetting.alignChildren = ["left","center"]; 
+    FirstSortingSetting.spacing = 10; 
+    FirstSortingSetting.margins = 0; 
+
+var SingleTile = FirstSortingSetting.add("radiobutton", undefined, undefined, {name: "SingleTile"}); 
+    SingleTile.text = "Single (Non-UDIM) Tile"; 
+
+// SECONDSORTINGSETTING
+// ====================
+var SecondSortingSetting = TileSettingsGroup.add("group", undefined, {name: "SecondSortingSetting"}); 
+    SecondSortingSetting.preferredSize.height = 20; 
+    SecondSortingSetting.orientation = "row"; 
+    SecondSortingSetting.alignChildren = ["left","center"]; 
+    SecondSortingSetting.spacing = 10; 
+    SecondSortingSetting.margins = 0; 
+
+var SingleUDIMTileText = SecondSortingSetting.add("radiobutton", undefined, undefined, {name: "SingleUDIMTileText"}); 
+    SingleUDIMTileText.text = "Single UDIM Tile: "; 
+
+// SINGLETILEGROUP
+// ===============
+var SingleTileGroup = SecondSortingSetting.add("group", undefined, {name: "SingleTileGroup"}); 
+    SingleTileGroup.orientation = "row"; 
+    SingleTileGroup.alignChildren = ["left","center"]; 
+    SingleTileGroup.spacing = 5; 
+    SingleTileGroup.margins = 0; 
+
+var SingleUDIMTile = SingleTileGroup.add('edittext {justify: "center", properties: {name: "SingleUDIMTile"}}'); 
+    SingleUDIMTile.text = "1001"; 
+    SingleUDIMTile.preferredSize.width = 50; 
+
+// THIRDSORTINGSETTING
+// ===================
+var ThirdSortingSetting = TileSettingsGroup.add("group", undefined, {name: "ThirdSortingSetting"}); 
+    ThirdSortingSetting.preferredSize.height = 20; 
+    ThirdSortingSetting.orientation = "row"; 
+    ThirdSortingSetting.alignChildren = ["left","center"]; 
+    ThirdSortingSetting.spacing = 10; 
+    ThirdSortingSetting.margins = 0; 
+
+var UDIMTileRange = ThirdSortingSetting.add("radiobutton", undefined, undefined, {name: "UDIMTileRange"}); 
+    UDIMTileRange.text = "UDIM Tile Range:"; 
+    UDIMTileRange.value = true; 
+    UDIMTileRange.preferredSize.height = 20; 
+
+// RANGEGROUP
+// ==========
+var RangeGroup = ThirdSortingSetting.add("group", undefined, {name: "RangeGroup"}); 
+    RangeGroup.orientation = "row"; 
+    RangeGroup.alignChildren = ["left","center"]; 
+    RangeGroup.spacing = 5; 
+    RangeGroup.margins = 0; 
+
+var FirstUDIMTile = RangeGroup.add('edittext {justify: "center", properties: {name: "FirstUDIMTile"}}'); 
+    FirstUDIMTile.text = "1001"; 
+    FirstUDIMTile.preferredSize.width = 50; 
+
+var innerText = RangeGroup.add("statictext", undefined, undefined, {name: "innerText"}); 
+    innerText.text = "to"; 
+    innerText.preferredSize.height = 20; 
+    innerText.justify = "center"; 
+
+var LastUDIMTile = RangeGroup.add('edittext {justify: "center", properties: {name: "LastUDIMTile"}}'); 
+    LastUDIMTile.text = "1010"; 
+    LastUDIMTile.preferredSize.width = 50; 
+
+// SORTINGSETTINGSDIVIDERGROUP
+// ===========================
+var SortingSettingsDividerGroup = SortingSettingsHeader.add("group", undefined, {name: "SortingSettingsDividerGroup"}); 
+    SortingSettingsDividerGroup.preferredSize.width = 5; 
+    SortingSettingsDividerGroup.preferredSize.height = 95; 
+    SortingSettingsDividerGroup.orientation = "row"; 
+    SortingSettingsDividerGroup.alignChildren = ["center","center"]; 
+    SortingSettingsDividerGroup.spacing = 0; 
+    SortingSettingsDividerGroup.margins = [5,0,5,0]; 
+
+var SortingSettingsDivider = SortingSettingsDividerGroup.add("panel", undefined, undefined, {name: "SortingSettingsDivider"}); 
+    SortingSettingsDivider.alignment = "fill"; 
+
+// MATERIALCHANNELGROUP
+// =====================
+var MaterialChannelGroup = SortingSettingsHeader.add("group", undefined, {name: "MaterialChannelGroup"}); 
+    MaterialChannelGroup.orientation = "column"; 
+    MaterialChannelGroup.alignChildren = ["left","center"]; 
+    MaterialChannelGroup.spacing = 10; 
+    MaterialChannelGroup.margins = 0; 
+
+var MaterialChannelHeader = MaterialChannelGroup.add("statictext", undefined, undefined, {name: "MaterialChannelHeader"}); 
+    MaterialChannelHeader.text = "Material Channel Sort Terms"; 
+
+var MaterialChannelEnterList = MaterialChannelGroup.add('edittext {properties: {name: "MaterialChannelEnterList", multiline: true, scrollable: true}}'); 
+    MaterialChannelEnterList.text = "BaseColor, Metallic, Roughness"; 
+    MaterialChannelEnterList.preferredSize.width = 218; 
+    MaterialChannelEnterList.preferredSize.height = 65; 
+
+// FILESAVESETTINGSHEADER
+// ======================
+var FileSaveSettingsHeader = CombinerSettingsHeader.add("panel", undefined, undefined, {name: "FileSaveSettingsHeader"}); 
+    FileSaveSettingsHeader.text = "File Save Name"; 
+    FileSaveSettingsHeader.orientation = "column"; 
+    FileSaveSettingsHeader.alignChildren = ["left","top"]; 
+    FileSaveSettingsHeader.spacing = 10; 
+    FileSaveSettingsHeader.margins = [10,15,10,10]; 
+
+// FILESAVESETTINGSGROUP
+// =====================
+var FileSaveSettingsGroup = FileSaveSettingsHeader.add("group", undefined, {name: "FileSaveSettingsGroup"}); 
+    FileSaveSettingsGroup.orientation = "row"; 
+    FileSaveSettingsGroup.alignChildren = ["left","center"]; 
+    FileSaveSettingsGroup.spacing = 0; 
+    FileSaveSettingsGroup.margins = 0; 
+
+var FileSavePrefix = FileSaveSettingsGroup.add('edittext {justify: "right", properties: {name: "FileSavePrefix"}}'); 
+    FileSavePrefix.text = "Prefix_"; 
+    FileSavePrefix.preferredSize.width = 313; 
+    FileSavePrefix.alignment = ["left","center"]; 
+
+var FileNameInnerPart = FileSaveSettingsGroup.add("statictext", undefined, undefined, {name: "FileNameInnerPart"}); 
+    FileNameInnerPart.text = "MaterialChannel.UDIM#."; 
+    FileNameInnerPart.preferredSize.width = 125; 
+    FileNameInnerPart.justify = "right"; 
+    FileNameInnerPart.alignment = ["left","center"]; 
+
+var FileSaveExtensionType_array = ["jpeg","png","tiff","psd"]; 
+var FileSaveExtensionType = FileSaveSettingsGroup.add("dropdownlist", undefined, undefined, {name: "FileSaveExtensionType", items: FileSaveExtensionType_array}); 
+    FileSaveExtensionType.selection = 1; 
+
+// DESTINATIONFOLDERHEADER
+// =======================
+var DestinationFolderHeader = CombinerSettingsHeader.add("panel", undefined, undefined, {name: "DestinationFolderHeader"}); 
+    DestinationFolderHeader.text = "Destination Folder"; 
+    DestinationFolderHeader.preferredSize.width = 510; 
+    DestinationFolderHeader.orientation = "row"; 
+    DestinationFolderHeader.alignChildren = ["left","top"]; 
+    DestinationFolderHeader.spacing = 10; 
+    DestinationFolderHeader.margins = [10,15,10,10]; 
+
+var SelectDFButton = DestinationFolderHeader.add("button", undefined, undefined, {name: "SelectDFButton"}); 
+    SelectDFButton.text = "Select Destination Folder"; 
+    SelectDFButton.preferredSize.width = 175; 
+    SelectDFButton.preferredSize.height = 25; 
+
+// DFGROUP
+// =======
+var DFGroup = DestinationFolderHeader.add("group", undefined, {name: "DFGroup"}); 
+    DFGroup.orientation = "row"; 
+    DFGroup.alignChildren = ["left","center"]; 
+    DFGroup.spacing = 10; 
+    DFGroup.margins = 0; 
+
+var DFLocationText = DFGroup.add("statictext", undefined, undefined, {name: "DFLocationText", truncate: "middle"}); 
+    DFLocationText.text = "Destination Folder Location"; 
+    DFLocationText.preferredSize.width = 320; 
+    DFLocationText.preferredSize.height = 25; 
+	DFLocationText.enabled  = false;
+
+// SCRIPTSETTINGSGROUP
+// ===================
+var ScriptSettingsGroup = MASTERWindow.add("group", undefined, {name: "ScriptSettingsGroup"}); 
+    ScriptSettingsGroup.orientation = "column"; 
+    ScriptSettingsGroup.alignChildren = ["left","center"]; 
+    ScriptSettingsGroup.spacing = 10; 
+    ScriptSettingsGroup.margins = [5,0,0,0]; 
+
+// SCRIPTSETTINGSPLACEMENTGROUP
+// ============================
+var ScriptSettingsPlacementGroup = ScriptSettingsGroup.add("group", undefined, {name: "ScriptSettingsPlacementGroup"}); 
+    ScriptSettingsPlacementGroup.orientation = "row"; 
+    ScriptSettingsPlacementGroup.alignChildren = ["left","center"]; 
+    ScriptSettingsPlacementGroup.spacing = 10; 
+    ScriptSettingsPlacementGroup.margins = 0; 
+
+// SCRIPTSETTINGSHEADER
+// ====================
+var ScriptSettingsHeader = ScriptSettingsPlacementGroup.add("panel", undefined, undefined, {name: "ScriptSettingsHeader"}); 
+    ScriptSettingsHeader.text = "Script Settings"; 
+    ScriptSettingsHeader.orientation = "column"; 
+    ScriptSettingsHeader.alignChildren = ["left","top"]; 
+    ScriptSettingsHeader.spacing = 10; 
+    ScriptSettingsHeader.margins = [10,15,10,10]; 
+
+// SETTINGSTOLOADHEADER
+// ====================
+var SettingsToLoadHeader = ScriptSettingsHeader.add("panel", undefined, undefined, {name: "SettingsToLoadHeader"}); 
+    SettingsToLoadHeader.text = "Tile Combiner Settings to Load"; 
+    SettingsToLoadHeader.preferredSize.width = 215; 
+    SettingsToLoadHeader.orientation = "column"; 
+    SettingsToLoadHeader.alignChildren = ["left","top"]; 
+    SettingsToLoadHeader.spacing = 10; 
+    SettingsToLoadHeader.margins = [10,15,10,10]; 
+
+var LoadDefaultButton = SettingsToLoadHeader.add("radiobutton", undefined, undefined, {name: "LoadDefaultButton"}); 
+    LoadDefaultButton.text = "Default"; 
+    LoadDefaultButton.value = true; 
+
+var LoadPreviousSessionButton = SettingsToLoadHeader.add("radiobutton", undefined, undefined, {name: "LoadPreviousSessionButton"}); 
+    LoadPreviousSessionButton.text = "Previous Session"; 
+
+var UserDefinedPreferencesButton = SettingsToLoadHeader.add("radiobutton", undefined, undefined, {name: "UserDefinedPreferencesButton"}); 
+    UserDefinedPreferencesButton.text = "User Defined Preferences—"; 
+
+// UDPFILEGROUP
+// ============
+var UDPFileGroup = SettingsToLoadHeader.add("group", undefined, {name: "UDPFileGroup"}); 
+    UDPFileGroup.preferredSize.width = 192; 
+    UDPFileGroup.orientation = "row"; 
+    UDPFileGroup.alignChildren = ["center","center"]; 
+    UDPFileGroup.spacing = 10; 
+    UDPFileGroup.margins = [0,0,0,0]; 
+
+var UDPSetButton = UDPFileGroup.add("button", undefined, undefined, {name: "UDPSetButton"}); 
+    UDPSetButton.text = "Set"; 
+    UDPSetButton.preferredSize.width = 60; 
+    UDPSetButton.preferredSize.height = 25; 
+
+var UDPLoadButton = UDPFileGroup.add("button", undefined, undefined, {name: "UDPLoadButton"}); 
+    UDPLoadButton.text = "Load"; 
+    UDPLoadButton.preferredSize.width = 60; 
+    UDPLoadButton.preferredSize.height = 25; 
+
+// SETTINGSTOLOADHEADER
+// ====================
+var SettingsToLoadDivider = SettingsToLoadHeader.add("panel", undefined, undefined, {name: "SettingsToLoadDivider"}); 
+    SettingsToLoadDivider.alignment = "fill"; 
+
+// RESETFOLDERPATHSGROUP
+// =====================
+var ResetFolderPathsGroup = SettingsToLoadHeader.add("group", undefined, {name: "ResetFolderPathsGroup"}); 
+    ResetFolderPathsGroup.preferredSize.width = 192; 
+    ResetFolderPathsGroup.orientation = "row"; 
+    ResetFolderPathsGroup.alignChildren = ["center","center"]; 
+    ResetFolderPathsGroup.spacing = 0; 
+    ResetFolderPathsGroup.margins = 0; 
+
+var ResetFolderPathsButton = ResetFolderPathsGroup.add("button", undefined, undefined, {name: "ResetFolderPathsButton"}); 
+    ResetFolderPathsButton.text = "Reset Current Folder Paths"; 
+    ResetFolderPathsButton.preferredSize.height = 25; 
+
+// OTHERSCRIPTSETTINGSHEADER
+// =========================
+var OtherScriptSettingsHeader = ScriptSettingsHeader.add("panel", undefined, undefined, {name: "OtherScriptSettingsHeader"}); 
+    OtherScriptSettingsHeader.text = "Other Script Settings"; 
+    OtherScriptSettingsHeader.preferredSize.width = 215; 
+    OtherScriptSettingsHeader.orientation = "column"; 
+    OtherScriptSettingsHeader.alignChildren = ["left","top"]; 
+    OtherScriptSettingsHeader.spacing = 10; 
+    OtherScriptSettingsHeader.margins = [10,15,10,10]; 
+
+var FolderSelectionShortcutModeCheckbox = OtherScriptSettingsHeader.add("checkbox", undefined, undefined, {name: "FolderSelectionShortcutModeCheckbox"}); 
+    FolderSelectionShortcutModeCheckbox.text = "Folder selection shortcut mode"; 
+    FolderSelectionShortcutModeCheckbox.value = true; 
+
+var ScriptCompletedAlertCheckbox = OtherScriptSettingsHeader.add("checkbox", undefined, undefined, {name: "ScriptCompletedAlertCheckbox"}); 
+    ScriptCompletedAlertCheckbox.text = "\u0022Script completed!\u0022 alert"; 
+    ScriptCompletedAlertCheckbox.value = true; 
+
+var IgnoreImageOverwritingWarningsCheckbox = OtherScriptSettingsHeader.add("checkbox", undefined, undefined, {name: "IgnoreImageOverwritingWarningsCheckbox"}); 
+    IgnoreImageOverwritingWarningsCheckbox.text = "Ignore image overwriting warnings"; 
+
+// BOTTOMOFSCRIPTSETTINGSGROUP
+// ===========================
+var BottomOfScriptSettingsGroup = ScriptSettingsGroup.add("group", undefined, {name: "BottomOfScriptSettingsGroup"}); 
+    BottomOfScriptSettingsGroup.orientation = "row"; 
+    BottomOfScriptSettingsGroup.alignChildren = ["left","top"]; 
+    BottomOfScriptSettingsGroup.spacing = 0; 
+    BottomOfScriptSettingsGroup.margins = 0; 
+
+// EXECUTESCRIPTGROUP
+// ==================
+var ExecuteScriptGroup = BottomOfScriptSettingsGroup.add("group", undefined, {name: "ExecuteScriptGroup"}); 
+    ExecuteScriptGroup.preferredSize.width = 75; 
+    ExecuteScriptGroup.orientation = "column"; 
+    ExecuteScriptGroup.alignChildren = ["left","bottom"]; 
+    ExecuteScriptGroup.spacing = 10; 
+    ExecuteScriptGroup.margins = 0; 
+
+// EXECUTESCRIPTBUTTONS
+// ====================
+var ExecuteScriptButtons = ExecuteScriptGroup.add("group", undefined, {name: "ExecuteScriptButtons"}); 
+    ExecuteScriptButtons.preferredSize.height = 80; 
+    ExecuteScriptButtons.orientation = "column"; 
+    ExecuteScriptButtons.alignChildren = ["right","bottom"]; 
+    ExecuteScriptButtons.spacing = 10; 
+    ExecuteScriptButtons.margins = 0; 
+
+var RunButton = ExecuteScriptButtons.add("button", undefined, undefined, {name: "RunButton"}); 
+    RunButton.text = "Run"; 
+    RunButton.preferredSize.width = 70; 
+    RunButton.preferredSize.height = 35; 
+
+var CancelButton = ExecuteScriptButtons.add("button", undefined, undefined, {name: "CancelButton"}); 
+    CancelButton.text = "Cancel"; 
+    CancelButton.preferredSize.width = 70; 
+    CancelButton.preferredSize.height = 25; 
+
+// VERSIONANDCOPYRIGHTGROUP
+// ========================
+var VersionAndCopyrightGroup = BottomOfScriptSettingsGroup.add("group", undefined, {name: "VersionAndCopyrightGroup"}); 
+    VersionAndCopyrightGroup.orientation = "row"; 
+    VersionAndCopyrightGroup.alignChildren = ["right","top"]; 
+    VersionAndCopyrightGroup.spacing = 10; 
+    VersionAndCopyrightGroup.margins = 0; 
+
+var VersionAndCopyrightText = VersionAndCopyrightGroup.add("group"); 
+    VersionAndCopyrightText.preferredSize.width = 165; 
+    VersionAndCopyrightText.orientation = "column"; 
+    VersionAndCopyrightText.alignChildren = ["right","center"]; 
+    VersionAndCopyrightText.spacing = 0; 
+    VersionAndCopyrightText.alignment = ["right","top"]; 
+
+
+    VersionAndCopyrightText.add("statictext", undefined, "v1.01", {name: "VersionAndCopyrightText"}); 
+    VersionAndCopyrightText.add("statictext", undefined, "Created by Saskia Dwarshuis", {name: "VersionAndCopyrightText"}); 
+    VersionAndCopyrightText.preferredSize.width = 165; 
+
+}
+
+
+
+// What operating system is this script running on?
+
+var wholeSystemInfo = (app.systemInformation)
+var BeforeOSPoint = wholeSystemInfo.indexOf("Operating System:")
+var AfterOSPointString = wholeSystemInfo.substring(BeforeOSPoint)
+var AfterOSMarkStringCutoff = AfterOSPointString.indexOf("System architecture", 0)
+var osString = AfterOSPointString.substring(0, AfterOSMarkStringCutoff)
+var runsOnOS = ""
+
+if (osString.indexOf("Windows") > -1) {
+	runsOnOS = "Windows"
+}
+
+if (osString.indexOf("Mac OS") > -1) {
+	runsOnOS = "Mac OS"
+}
+
+
+
+// Script UI interaction, part 1
+
+var allTexturesFolder = ""
+var outputFolder = ""
+var fileNamePrefix = String(FileSavePrefix.text)
+var tempFolderSelectionPath = ""
+var libraryFolderPath = File($.fileName).path + "/UDIM Tile Combiner Script for Photoshop Library Scripts Only"
+var userSetSettingsFileToPointTo = libraryFolderPath + "/UserSetSettings.js"
+var loadedUserSettingsFile = ""
+
+
+// Importing activeprefs file information and updating script
+
+$.evalFile(libraryFolderPath + "/ActiveScriptSettings.js")
+
+radioButtonSelected()
+
+$.evalFile(libraryFolderPath + "/DefaultSettings.js")
+$.evalFile(libraryFolderPath + "/PreviousSessionSettings.js")
+
+if (userSetSettingsFileToPointTo === "") {
+	userSetSettingsFileToPointTo = libraryFolderPath + "/UserSetSettings.js"
+	$.evalFile(userSetSettingsFileToPointTo)
+} else {
+	$.evalFile(userSetSettingsFileToPointTo)
+}
+
+function folderPathUpdate(){
+	if (allTexturesFolder !== ""){
+		var tempSF = Folder(allTexturesFolder)
+		SFLocationText.text = tempSF.fsName.toString()
+		SFLocationText.enabled = true
+		SelectSFButton.text = "Reselect Source Folder?"
+	} else {
+		SFLocationText.text = "Source Folder Location"
+		SFLocationText.enabled = false
+		SelectSFButton.text = "Select Source Folder"			
+	}
+
+	if (outputFolder !== ""){
+		var tempDF = Folder(outputFolder)
+		DFLocationText.text = tempDF.fsName.toString()
+		DFLocationText.enabled = true
+		SelectDFButton.text = "Reselect Destination Folder?" 
+	} else {
+		DFLocationText.text = "Destination Folder Location"
+		DFLocationText.enabled = false
+		SelectDFButton.text = "Select Destination Folder"
+	}	
+}
+
+if (LoadDefaultButton.value == true){
+	defaultRadioButtonSettings()
+	folderPathUpdate()
+}
+
+if (LoadPreviousSessionButton.value == true){
+	previousSessionRadioButtonSettings()
+	folderPathUpdate()
+}
+
+if (UserDefinedPreferencesButton.value == true){
+	userSetPrefButtonSettings()
+	folderPathUpdate()
+}
+
+
+
+// Script UI interaction, part 2
+
+CancelButton.onClick = function() {
+	MASTERWindow.close()
+}
+	
+SelectSFButton.onClick = function(){
+	if (FolderSelectionShortcutModeCheckbox.value == true) {
+		if (tempFolderSelectionPath === "") { 
+			allTexturesFolder = Folder.selectDialog("Select Source Folder")
+			SFLocationText.text = allTexturesFolder.fsName.toString()
+			SFLocationText.enabled = true
+			tempFolderSelectionPath = allTexturesFolder.fsName
+			SelectSFButton.text = "Reselect Source Folder?"
+		} else {
+			allTexturesFolder = Folder.selectDialog("Select Source Folder", Folder(allTexturesFolder))
+			SFLocationText.text = allTexturesFolder.fsName.toString()
+			SFLocationText.enabled = true
+			tempFolderSelectionPath = allTexturesFolder.fsName
+			SelectSFButton.text = "Reselect Source Folder?"
+		}
+	} else {
+		allTexturesFolder = Folder.selectDialog("Select Source Folder")
+		SFLocationText.text = allTexturesFolder.fsName.toString()
+		SFLocationText.enabled = true
+		tempFolderSelectionPath = allTexturesFolder.fsName
+		SelectSFButton.text = "Reselect Source Folder?"
+	}
+}
+	
+SelectDFButton.onClick = function(){
+	if (FolderSelectionShortcutModeCheckbox.value == true) {
+		if (tempFolderSelectionPath === "") { 
+			outputFolder = Folder.selectDialog("Select Destination Folder")
+			DFLocationText.text = outputFolder.fsName.toString()
+			DFLocationText.enabled = true
+			tempFolderSelectionPath = outputFolder.fsName
+			SelectDFButton.text = "Reselect Destination Folder?"
+		} else {
+			outputFolder = Folder.selectDialog("Select Destination Folder", Folder(allTexturesFolder))
+			DFLocationText.text = outputFolder.fsName.toString()
+			DFLocationText.enabled = true
+			tempFolderSelectionPath = outputFolder.fsName
+			SelectDFButton.text = "Reselect Destination Folder?"			
+		}
+	} else {
+		outputFolder = Folder.selectDialog("Select Destination Folder")
+		DFLocationText.text = outputFolder.fsName.toString()
+		DFLocationText.enabled = true
+		tempFolderSelectionPath = outputFolder.fsName
+		SelectDFButton.text = "Reselect Destination Folder?"
+	}
+}	
+
+SingleTile.onClick = function(){
+SingleTile.value = true
+SingleUDIMTileText.value = false
+UDIMTileRange.value = false
+}
+
+SingleUDIMTileText.onClick = function(){
+SingleUDIMTileText.value = true
+SingleTile.value = false
+UDIMTileRange.value = false
+}
+
+UDIMTileRange.onClick = function(){
+UDIMTileRange.value = true
+SingleTile.value = false
+SingleUDIMTileText.value = false
+}
+
+SingleUDIMTile.onChange = function(){
+	var TileNumber = SingleUDIMTile.text
+}
+
+FirstUDIMTile.onChange = function(){
+	var BeginningNumber = FirstUDIMTile.text
+}
+
+LastUDIMTile.onChange = function(){
+	var EndingNumber = LastUDIMTile.text
+}
+
+MaterialChannelEnterList.onChange = function(){
+	var MaterialChannelEnterListString = String(MaterialChannelEnterList.text)
+}
+
+FileSavePrefix.onChange = function(){
+	var fileNamePrefix = String(FileSavePrefix.text)
+}
+
+FileSaveExtensionType.onChange = function() {
+	var extSelection = FileSaveExtensionType.selection	
+}
+
+UDPSetButton.onClick = function() {
+	var setUserSettingsPath = Folder.selectDialog("Where should the user set preferences file be saved?", libraryFolderPath)
+	// Create naming variable based on time?
+	var setUserSettingsFileName = prompt("What should the user set preferences file be called?", "UserSetSettings_temp")
+	var newSetUserSettingsFile = new File(setUserSettingsPath + "/" + setUserSettingsFileName + ".js")
+	newSetUserSettingsFile.encoding = 'UTF8'
+	newSetUserSettingsFile.open('w');
+	
+	var writeNewSetUserSettings = (
+		"function userSetPrefButtonSettings(){" + "\n" +
+		"SingleTile.value = " + SingleTile.value + "\n" +
+		"SingleUDIMTileText.value = " + SingleUDIMTileText.value + "\n" +
+		"UDIMTileRange.value = " + UDIMTileRange.value + "\n" +
+		"SingleUDIMTile.text = " + '"' + SingleUDIMTile.text + '"' + "\n" +
+		"FirstUDIMTile.text = " + '"' + FirstUDIMTile.text + '"' + "\n" +
+		"LastUDIMTile.text = " + '"' + LastUDIMTile.text + '"' + "\n" +
+		"MaterialChannelEnterList.text = " + '"' + MaterialChannelEnterList.text + '"' + "\n" +
+		"FileSavePrefix.text = " + '"' + FileSavePrefix.text + '"' + "\n" +
+		"FileSaveExtensionType.selection = " + FileSaveExtensionType.selection + "\n" +
+		"FolderSelectionShortcutModeCheckbox.value = " + FolderSelectionShortcutModeCheckbox.value + "\n" +
+		"ScriptCompletedAlertCheckbox.value = " + ScriptCompletedAlertCheckbox.value + "\n" +
+		"IgnoreImageOverwritingWarningsCheckbox.value = " + IgnoreImageOverwritingWarningsCheckbox.value + "\n" +
+		"allTexturesFolder = " + '"' + allTexturesFolder + '"' + "\n" +
+		"outputFolder = " + '"' + outputFolder + '"' + "\n" +
+		"}"	
+	)
+
+	newSetUserSettingsFile.write(writeNewSetUserSettings)
+	userSetSettingsFileToPointTo = newSetUserSettingsFile
+	$.evalFile(newSetUserSettingsFile)
+	userSetPrefButtonSettings()
+}
+
+UDPLoadButton.onClick = function(){
+//	loadedUserSettingsFile = File.selectDialog("Select user set preferences file to load", libraryFolderPath)
+	loadedUserSettingsFile = File.openDialog("Select user set preferences file to load", false)
+	userSetSettingsFileToPointTo = loadedUserSettingsFile
+	$.evalFile(loadedUserSettingsFile)
+	userSetPrefButtonSettings()
+	folderPathUpdate()
+}
+
+LoadDefaultButton.onClick = function(){
+	defaultRadioButtonSettings()
+	folderPathUpdate()
+}
+
+LoadPreviousSessionButton.onClick = function(){
+	previousSessionRadioButtonSettings()
+	folderPathUpdate()
+}
+
+UserDefinedPreferencesButton.onClick = function(){
+	if (loadedUserSettingsFile.length > 0){
+		$.evalFile(loadedUserSettingsFile)
+	}
+	
+	userSetPrefButtonSettings()
+	folderPathUpdate()
+}
+
+ResetFolderPathsButton.onClick = function(){
+	allTexturesFolder = ""
+	outputFolder = ""
+	SFLocationText.text = "Source Folder Location"
+	SFLocationText.enabled  = false
+	SelectSFButton.text = "Select Source Folder"	
+	DFLocationText.text = "Destination Folder Location"
+	DFLocationText.enabled  = false
+	SelectDFButton.text = "Select Destination Folder"
+}
+
+
+
+// Main part of script
+
+RunButton.onClick = function() {
+
+// Setting up "Script complete!" notification
+
+var startTime = new Date()
+var doneNotificationStartOfAlert = String("UDIM Tile Combiner is done!")
+var doneNotificationTileSetting = ""
+
+if (SingleTile.value == true) {
+	doneNotificationTileSetting = String("Single (Non-UDIM) Tile") 
+}
+
+if (SingleUDIMTileText.value == true ) {
+	doneNotificationTileSetting = String("Single UDIM Tile, tile " + SingleUDIMTile.text)
+}
+
+if (UDIMTileRange.value == true) {
+	doneNotificationTileSetting = String("UDIM Tile Range, tile " + FirstUDIMTile.text + " to tile " + LastUDIMTile.text)
+}
+
+var doneNotificationSettingsText = (
+	"Tile Combiner Settings—" + "\n" + 
+	"\n" +
+	"Source Folder: " + SFLocationText.text + "\n" +
+	"\n" +
+	"Destination Folder: " + DFLocationText.text + "\n" +
+	"\n" +
+	"Tile Setting: " + doneNotificationTileSetting + "\n" +
+	"\n" +
+	"Material Channel Sort Terms: " + MaterialChannelEnterList.text
+)
+
+
+
+// Sorting and "sanitizing" material channel sort terms input into array
+
+var MaterialChannelEnterListString = String(MaterialChannelEnterList.text)
+var MatChannelSpaceReplace = String(MaterialChannelEnterListString.replace(/\s/g, ""))
+var MatChannelFilter = []
+var MatChannelFilter = MatChannelSpaceReplace.split(",")
+var MaterialList = []
+for (var m = 0; m < MatChannelFilter.length; m++) {
+	if(MatChannelFilter[m].length > 0) {
+		MaterialList.push(MatChannelFilter[m])
+	}
+}
+
+
+
+// Checking settings for issues, part 1
+
+var okayToRun = true
+
+if (runsOnOS === ""){
+	okayToRun = false
+	alert("Error: Unrecognized OS! Please run this script on a Windows or MacOS operating system.")
+}
+
+if (allTexturesFolder === ""){
+	okayToRun = false
+	alert("Error: No source folder selected! Please select a source folder.")
+} 
+
+if (outputFolder === ""){
+	okayToRun = false
+	alert("Error: No destination folder selected! Please select a destination folder.")
+} 
+
+if (String(allTexturesFolder) === String(outputFolder)){
+	if (confirm("Warning: Source folder and destination folder are the same. Continue with combining script?")){
+	} else {
+		okayToRun = false
+	}
+}
+
+
+
+// "Sanitizing" folder inputs and getting source folder files
+allTexturesFolder = Folder(allTexturesFolder)
+outputFolder = Folder(outputFolder)
+var allTextureFilesList = allTexturesFolder.getFiles()
+
+
+
+// Checking settings for issues, part 2
+
+if (allTextureFilesList.length < 1){
+	okayToRun = false
+	alert("Error: No files found in source folder! Please correct.")
+}
+
+if (Number(SingleUDIMTile.text) < 1001 || Number(SingleUDIMTile.text) > 1999){
+	okayToRun = false
+	alert("Error: The tile number for the single UDIM tile option is not within the acceptable range (1001 to 1999). Please correct.")
+}
+
+if (Number(FirstUDIMTile.text) < 1001 || Number(FirstUDIMTile.text) > 1999){
+	okayToRun = false
+	alert("Error: The first tile number in the UDIM range option is not within the acceptable range (1001 to 1999). Please correct.")
+}
+
+if (Number(LastUDIMTile.text) < 1001 || Number(LastUDIMTile.text) > 1999){
+	okayToRun = false
+	alert("Error: The last tile number in the UDIM range option is not within the acceptable range (1001 to 1999). Please correct.")
+}
+
+if (Number(FirstUDIMTile.text) >= Number(LastUDIMTile.text)){
+	okayToRun = false
+	alert("Error: The first tile number in UDIM range is smaller than or equal to the last tile number! Please make the first tile number smaller, or the last tile number larger.")
+}
+
+if (MaterialList.length == 0){
+	okayToRun = false
+	alert("Error: No material channel sort term entered! Please enter at least one material channel sort term.")
+}
+
+
+
+// Main script
+
+if (okayToRun == true) {
+	
+app.displayDialogs = DialogModes.NO
+	
+	// ------ Single (Non-UDIM) tile ------
+	if (SingleTile.value == true){
+	
+		// Sorting script
+		for (var a = 0; a < MaterialList.length; a++) {
+		var MaterialString = MaterialList[a]					
+		var photoshopScriptArrayList = []
+		
+			for (var b = 0; b < allTextureFilesList.length; b++) {	
+				var fileToSort = allTextureFilesList[b]
+				var MaterialIndicator = fileToSort.toString().indexOf(MaterialString)
+			
+					if (MaterialIndicator > -1) {
+								photoshopScriptArrayList.push(fileToSort)
+					}
+			}
+		
+			// Texture combining		
+			if (photoshopScriptArrayList.length > 0){
+						
+				var firstFile = photoshopScriptArrayList[0]
+				open(firstFile)
+				var mergingDoc = app.activeDocument
+				
+					for (var c = 1; c < photoshopScriptArrayList.length; c++) {
+						open(photoshopScriptArrayList[c])
+						var copyFromDoc = app.activeDocument
+						var layer = copyFromDoc.activeLayer;
+						layer.duplicate(mergingDoc, ElementPlacement.PLACEATBEGINNING);
+						copyFromDoc.close(SaveOptions.DONOTSAVECHANGES)
+						
+					}
+				
+				if (runsOnOS === "Windows") {
+					var fileNameToSave = String(outputFolder.fsName.toString() + "\\" + FileSavePrefix.text + MaterialString)	
+				}
+				
+				if (runsOnOS === "Mac OS") {
+					var fileNameToSave = String(outputFolder.fsName.toString() + "/" + FileSavePrefix.text + MaterialString)	
+				}						
+				
+				
+				
+				// File saving
+				
+				var extSelection = String(FileSaveExtensionType.selection)	
+
+				function saveFunctionSingleNonUDIMTile(fileExtensionReplace, saveOptionReplace){				
+					if (IgnoreImageOverwritingWarningsCheckbox.value == false){
+						var fullFileNameToSave = new File(fileNameToSave + fileExtensionReplace)
+						if (fullFileNameToSave.exists){
+							if (confirm(FileSavePrefix.text + MaterialString + fileExtensionReplace + " already exists in the destination folder. Overwrite image?")){
+								mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+							}
+						} else {
+							mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+						}
+					} else {
+						mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+					}					
+				}
+				
+				if (extSelection.indexOf("jpeg") == 0) {
+					saveFunctionSingleNonUDIMTile(".jpeg", JPEGSaveOptions)
+				}
+				
+				if (extSelection.indexOf("png") == 0){
+					saveFunctionSingleNonUDIMTile(".png", PNGSaveOptions)				
+				}
+				
+				if (extSelection.indexOf("tiff") == 0) {
+					saveFunctionSingleNonUDIMTile(".tiff", TiffSaveOptions)
+				}
+				
+				if (extSelection.indexOf("psd") == 0) {
+					saveFunctionSingleNonUDIMTile(".psd", PhotoshopSaveOptions)
+				}
+							
+				mergingDoc.close(SaveOptions.DONOTSAVECHANGES)
+
+			}
+		}				
+	}
+
+
+	
+	// ------ Single UDIM tile ------
+	if (SingleUDIMTileText.value == true){
+
+		// Sorting script
+		for (var d = 0; d < MaterialList.length; d++) {
+		var MaterialString = MaterialList[d]					
+		var UDIMString = Number(SingleUDIMTile.text)
+		var photoshopScriptArrayList = []
+
+		for (var e = 0; e < allTextureFilesList.length; e++) {		
+			var fileToSort = allTextureFilesList[e]
+			var MaterialIndicator = fileToSort.toString().indexOf(MaterialString)
+			var UDIMIndicator = fileToSort.toString().indexOf(UDIMString)
+		
+				if (MaterialIndicator > -1) {
+					
+						if (UDIMIndicator > -1) {
+							photoshopScriptArrayList.push(fileToSort)						
+						}
+				}
+		}
+		
+			// Texture combining		
+			if (photoshopScriptArrayList.length > 0){
+						
+				var firstFile = photoshopScriptArrayList[0]
+				open(firstFile)
+				var mergingDoc = app.activeDocument
+				
+					for (var f = 1; f < photoshopScriptArrayList.length; f++) {
+						open(photoshopScriptArrayList[f])
+						var copyFromDoc = app.activeDocument
+						var layer = copyFromDoc.activeLayer;
+						layer.duplicate(mergingDoc, ElementPlacement.PLACEATBEGINNING);
+						copyFromDoc.close(SaveOptions.DONOTSAVECHANGES)
+						
+					}
+				
+				if (runsOnOS === "Windows") {
+					var fileNameToSave = String(outputFolder.fsName.toString() + "\\" + FileSavePrefix.text + MaterialString + "." + UDIMString)	
+				}
+				
+				if (runsOnOS === "Mac OS") {
+					var fileNameToSave = String(outputFolder.fsName.toString() + "/" + FileSavePrefix.text + MaterialString + "." + UDIMString)	
+				}	
+				
+				var extSelection = String(FileSaveExtensionType.selection)	
+				
+				function saveFunctionSingleUDIMTile(fileExtensionReplace, saveOptionReplace){				
+					if (IgnoreImageOverwritingWarningsCheckbox.value == false){
+						var fullFileNameToSave = new File(fileNameToSave + fileExtensionReplace)
+						if (fullFileNameToSave.exists){
+							if (confirm(FileSavePrefix.text + MaterialString + "." + UDIMString + fileExtensionReplace + " already exists in the destination folder. Overwrite image?")){
+								mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+							}
+						} else {
+							mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+						}
+					} else {
+						mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+					}					
+				}
+				
+				if (extSelection.indexOf("jpeg") == 0) {
+					saveFunctionSingleUDIMTile(".jpeg", JPEGSaveOptions)
+				}
+				
+				if (extSelection.indexOf("png") == 0) {
+					saveFunctionSingleUDIMTile(".png", PNGSaveOptions)
+				}
+				
+				if (extSelection.indexOf("tiff") == 0) {
+					saveFunctionSingleUDIMTile(".tiff", TiffSaveOptions)
+				}
+				
+				if (extSelection.indexOf("psd") == 0) {
+					saveFunctionSingleUDIMTile(".psd", PhotoshopSaveOptions)
+				}
+				
+				mergingDoc.close(SaveOptions.DONOTSAVECHANGES)
+				
+			}
+		}
+	}			
+	
+	
+	
+	// ------ UDIM tile range ------
+	if (UDIMTileRange.value == true){
+
+		// UDIM range array generator
+		var UDIMNumberList = []
+		var BeginningNumber = Number(FirstUDIMTile.text)
+		var EndingNumber = Number(LastUDIMTile.text)
+
+		for (var g = BeginningNumber; g < EndingNumber + 1; g++) {
+			UDIMNumberList.push(g)
+		}
+		
+		// Sorting script
+		for (var h = 0; h < MaterialList.length; h++) {
+		var MaterialString = MaterialList[h]
+		
+			for (var i = 0; i < UDIMNumberList.length; i++) {
+				var UDIMString = UDIMNumberList[i]
+				
+				var photoshopScriptArrayList = []
+
+				for (var j = 0; j < allTextureFilesList.length; j++) {	
+					var fileToSort = allTextureFilesList[j]
+					var MaterialIndicator = fileToSort.toString().indexOf(MaterialString)
+					var UDIMIndicator = fileToSort.toString().indexOf(UDIMString)
+				
+						if (MaterialIndicator > -1) {
+							
+								if (UDIMIndicator > -1) {
+									photoshopScriptArrayList.push(fileToSort)
+								
+								}
+						}
+				}
+
+				// Texture combining		
+				if (photoshopScriptArrayList.length > 0){
+							
+					var firstFile = photoshopScriptArrayList[0]
+					open(firstFile)
+					var mergingDoc = app.activeDocument
+					
+						for (var k = 1; k < photoshopScriptArrayList.length; k++) {
+							open(photoshopScriptArrayList[k])
+							var copyFromDoc = app.activeDocument
+							var layer = copyFromDoc.activeLayer;
+							layer.duplicate(mergingDoc, ElementPlacement.PLACEATBEGINNING);
+							copyFromDoc.close(SaveOptions.DONOTSAVECHANGES)
+							
+						}
+					
+					if (runsOnOS === "Windows") {
+						var fileNameToSave = String(outputFolder.fsName.toString() + "\\" + FileSavePrefix.text + MaterialString + "." + UDIMString)	
+					}
+					
+					if (runsOnOS === "Mac OS") {
+						var fileNameToSave = String(outputFolder.fsName.toString() + "/" + FileSavePrefix.text + MaterialString + "." + UDIMString)	
+					}	
+					
+					var extSelection = String(FileSaveExtensionType.selection)	
+
+					function saveFunctionUDIMRange(fileExtensionReplace, saveOptionReplace){				
+						if (IgnoreImageOverwritingWarningsCheckbox.value == false){
+							var fullFileNameToSave = new File(fileNameToSave + fileExtensionReplace)
+							if (fullFileNameToSave.exists){
+								if (confirm(FileSavePrefix.text + MaterialString + "." + UDIMString + fileExtensionReplace + " already exists in the destination folder. Overwrite image?")){
+									mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+								}
+							} else {
+								mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+							}
+						} else {
+							mergingDoc.saveAs(new File(fileNameToSave + fileExtensionReplace), new saveOptionReplace(), true, Extension.NONE)
+						}					
+					}
+					
+					if (extSelection.indexOf("jpeg") == 0) {
+						saveFunctionUDIMRange(".jpeg", JPEGSaveOptions)
+					}
+					
+					if (extSelection.indexOf("png") == 0) {
+						saveFunctionUDIMRange(".png", PNGSaveOptions)
+					}
+					
+					if (extSelection.indexOf("tiff") == 0) {
+						saveFunctionUDIMRange(".tiff", TiffSaveOptions)
+					}
+					
+					if (extSelection.indexOf("psd") == 0) {
+						saveFunctionUDIMRange(".psd", PhotoshopSaveOptions)
+					}
+					
+					mergingDoc.close(SaveOptions.DONOTSAVECHANGES)
+
+				}
+			}
+		}
+	}
+
+
+
+	// Overwrite active settings file
+	
+	var activeScriptSettingsFile = new File(libraryFolderPath + "/ActiveScriptSettings.js")
+	activeScriptSettingsFile.encoding = 'UTF8'
+	activeScriptSettingsFile.open('w');
+	
+	var writeActiveScriptSettings = (
+		"function radioButtonSelected(){" + "\n" +
+		"LoadDefaultButton.value = " + LoadDefaultButton.value + "\n" +
+		"LoadPreviousSessionButton.value = " + LoadPreviousSessionButton.value + "\n" +
+		"UserDefinedPreferencesButton.value = " + UserDefinedPreferencesButton.value + "\n" +
+		"userSetSettingsFileToPointTo = " + '"' + userSetSettingsFileToPointTo + '"' + "\n" +
+		"}"
+	)
+	
+	activeScriptSettingsFile.write(writeActiveScriptSettings)	
+
+	
+	
+	// Overwrite previous session file
+	
+	var previousSessionSettingsFile = new File(libraryFolderPath + "/PreviousSessionSettings.js")
+	previousSessionSettingsFile.encoding = 'UTF8'
+	previousSessionSettingsFile.open('w');
+
+	var writePreviousSessionSettings = (
+		"function previousSessionRadioButtonSettings(){" + "\n" +
+		"SingleTile.value = " + SingleTile.value + "\n" +
+		"SingleUDIMTileText.value = " + SingleUDIMTileText.value + "\n" +
+		"UDIMTileRange.value = " + UDIMTileRange.value + "\n" +
+		"SingleUDIMTile.text = " + '"' + SingleUDIMTile.text + '"' + "\n" +
+		"FirstUDIMTile.text = " + '"' + FirstUDIMTile.text + '"' + "\n" +
+		"LastUDIMTile.text = " + '"' + LastUDIMTile.text + '"' + "\n" +
+		"MaterialChannelEnterList.text = " + '"' + MaterialChannelEnterList.text + '"' + "\n" +
+		"FileSavePrefix.text = " + '"' + FileSavePrefix.text + '"' + "\n" +
+		"FileSaveExtensionType.selection = " + FileSaveExtensionType.selection + "\n" +
+		"FolderSelectionShortcutModeCheckbox.value = " + FolderSelectionShortcutModeCheckbox.value + "\n" +
+		"ScriptCompletedAlertCheckbox.value = " + ScriptCompletedAlertCheckbox.value + "\n" +
+		"IgnoreImageOverwritingWarningsCheckbox.value = " + IgnoreImageOverwritingWarningsCheckbox.value + "\n" +
+		"allTexturesFolder = " + '"' + allTexturesFolder + '"' + "\n" +
+		"outputFolder = " + '"' + outputFolder + '"' + "\n" +
+		"}"	
+	)
+
+	previousSessionSettingsFile.write(writePreviousSessionSettings)
+
+
+
+	MASTERWindow.close()
+
+
+
+	// Done Notification
+	
+	var endTime = new Date()
+	var timeElapsed = endTime - startTime
+	timeElapsed /= 60000
+	minutesInAdditionToElapsed = Math.floor(timeElapsed)
+	secondsInAdditionToElapsed = Math.round((timeElapsed - minutesInAdditionToElapsed) * 60)		
+	var doneNotificationComplete = (
+		doneNotificationStartOfAlert + "\n" + 
+		"\n" + 
+		"Time elapsed: " + minutesInAdditionToElapsed + " minutes and " + secondsInAdditionToElapsed + " seconds" + "\n" + 
+		"\n" + 
+		doneNotificationSettingsText
+	)
+	if (ScriptCompletedAlertCheckbox.value == true){
+		alert(doneNotificationComplete)
+	}
+
+}
+
+}
+
+MASTERWindow.show();
