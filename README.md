@@ -46,7 +46,7 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 #### Tile Combiner Settings to Load
 
-Comming Soon!
+Coming Soon!
 
 #### Other Script Settings
 
