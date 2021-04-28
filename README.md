@@ -48,17 +48,17 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 // Explanation of section
 
-**Default** radio button— 
+**Default** radio button— If selected, loads in the script settings saved in UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js
 
-**Previous Session** radio button— 
+**Previous Session** radio button— If selected, loads in the script settings saved in UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js
 
-**User Defined Preferences** radio button— 
+**User Defined Preferences** radio button— If selected, loads in the script settings saved in whatever file the load button has set the script to point to (the default is  UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js
 
-**Set** button— 
+**Set** button— Takes a snapshot of the current script settings, and creates a new settings file. The user selects what folder to save the file in, and what name the file should have (the file type will be .js). The script will automatically set this new file as the user set setting file to reference if the User Defined Preferences radio button is clicked. 
 
-**Load** button— 
+**Load** button— Opens a file selection dialog to allow the user to select a user set settings file. The settings saved within that file will then update the current script settings, and will update the script with those settings each time the User Defined Preferences radio button is clicked. The selected settings file will remain the file that gets referenced for the User Defined Preferences radio button until another file is selected. 
 
-**Reset Current Folder Paths** button— 
+**Reset Current Folder Paths** button— Any source folder selected and any destination folder selected will be reset to no entry. 
 
 #### Other Script Settings
 
@@ -66,4 +66,4 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 **“Script completed!” alert** checkbox— If enabled, an alert will run at the end of the combining process. 
 
-**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
+**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite.
