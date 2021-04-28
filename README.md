@@ -4,9 +4,9 @@
 
 ## Disclaimer
 
-This script was written and tested on only a Windows computer. I have done my best to make the script work for MacOS, but there may be issues.
+This script was written and tested on only a Windows computer. I have done my best to make the script work for MacOS, but there may be issues. Likewise only installation instructions for Windows are listed, but MacOS shouldn’t be much different.
 
-The script was only tested on Photoshop CC versions 2019 and 2020, but it should work on Photoshop versions reaching back to CS6, if not further— however, this is not ensured.
+The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and forwards compatibility is likely, but not guaranteed
 
 ## Installation Instructions
 
@@ -25,9 +25,10 @@ The script was only tested on Photoshop CC versions 2019 and 2020, but it should
 
 ## How To Use
 
-### Overview
+### Substance Painter Export Settings
 
-// From Substance Painter settings
+// Export settings
+### Combiner Script Walkthrough
 
 1. Select a source folder, which should contain the texture maps exported from Substance Painter. 
 2. Select a destination folder, in which the combined images will be saved to.
@@ -37,7 +38,7 @@ The script was only tested on Photoshop CC versions 2019 and 2020, but it should
 6. Select which file type to save the combined images as (the default is .png).
 7. Run the script!
 
-### Other features
+### Other Features
 
 #### Tile Combiner Settings to Load
 
@@ -45,8 +46,8 @@ The script was only tested on Photoshop CC versions 2019 and 2020, but it should
 
 #### Other Script Settings
 
-*Folder selection shortcut mode* checkbox—
+*Folder selection shortcut mode* checkbox— If enabled, the second folder selection dialog (the destination folder, typically) will open with the file path of the first folder selection (the source folder, typically). If disabled, the folder selection dialog will always open at the desktop. 
 
-*“Script completed!” alert* checkbox—
+*“Script completed!” alert* checkbox— If enabled, an alert will run at the end of the combining process. 
 
-*Ignore image overwriting warnings* checkbox—
+*Ignore image overwriting warnings* checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
