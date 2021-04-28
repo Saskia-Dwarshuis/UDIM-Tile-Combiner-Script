@@ -48,13 +48,17 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 // Explanation of section
 
-// Default
+**Default** radio button— 
 
-// Previous Session
+**Previous Session** radio button— 
 
-// User Defined Preferences
+**User Defined Preferences** radio button— 
 
-// Reset Current Folder Paths
+**Set** button— 
+
+**Load** button— 
+
+**Reset Current Folder Paths** button— 
 
 #### Other Script Settings
 
