@@ -46,15 +46,7 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 #### Tile Combiner Settings to Load
 
-// Explanation of section
-
-// Default
-
-// Previous Session
-
-// User Defined Preferences
-
-// Reset Current Folder Paths
+Comming Soon!
 
 #### Other Script Settings
 
