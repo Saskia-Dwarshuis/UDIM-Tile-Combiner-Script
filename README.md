@@ -38,20 +38,28 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 2. Select a destination folder, in which the combined images will be saved to.
 3. Choose which tile setting the script should work with when combining texture maps and change the UDIM tile number values if need be. 
 4. Add or remove material channel sort terms the script should work with when combining texture maps. 
-5. Change or remove the combined image save name prefix (the default is “Prefix_”).
-6. Select which file type to save the combined images as (the default is .png).
+5. Change or remove the combined texture maps’ save name prefix (the default is “Prefix_”).
+6. Select which file type to save the combined texture maps as (the default is .png).
 7. Run the script!
 
 ### Other Features
 
 #### Tile Combiner Settings to Load
 
-Coming Soon!
+// Explanation of section
+
+// Default
+
+// Previous Session
+
+// User Defined Preferences
+
+// Reset Current Folder Paths
 
 #### Other Script Settings
 
-*Folder selection shortcut mode* checkbox— If enabled, the second folder selection dialog (the destination folder, typically) will open with the file path of the first folder selection (the source folder, typically). If disabled, the folder selection dialog will always open at the desktop. 
+**Folder selection shortcut mode** checkbox— If enabled, the second folder selection dialog (the destination folder, typically) will open with the file path of the first folder selection (the source folder, typically). If disabled, the folder selection dialog will always open at the desktop. 
 
-*“Script completed!” alert* checkbox— If enabled, an alert will run at the end of the combining process. 
+**“Script completed!” alert** checkbox— If enabled, an alert will run at the end of the combining process. 
 
-*Ignore image overwriting warnings* checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite.
+**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
