@@ -27,8 +27,12 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 ### Substance Painter Export Settings
 
-// Export settings
+* Add an alpha channel to each material channel exported, with *Opacity* or *2D View* used as the alpha value. 
+* *Dilation + Transparency*, with a low dilation value. 
+
 ### Combiner Script Walkthrough
+
+![UDIM_Tile_Combiner_UI_Numbered](https://user-images.githubusercontent.com/83183389/116453204-98c4e500-a82c-11eb-98db-66bf6a7f3e97.png)
 
 1. Select a source folder, which should contain the texture maps exported from Substance Painter. 
 2. Select a destination folder, in which the combined images will be saved to.
@@ -44,10 +48,18 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 // Explanation of section
 
+// Default
+
+// Previous Session
+
+// User Defined Preferences
+
+// Reset Current Folder Paths
+
 #### Other Script Settings
 
 *Folder selection shortcut mode* checkbox— If enabled, the second folder selection dialog (the destination folder, typically) will open with the file path of the first folder selection (the source folder, typically). If disabled, the folder selection dialog will always open at the desktop. 
 
 *“Script completed!” alert* checkbox— If enabled, an alert will run at the end of the combining process. 
 
-*Ignore image overwriting warnings* checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
+*Ignore image overwriting warnings* checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite.
