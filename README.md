@@ -15,7 +15,7 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 #### If you have administrator permissions:
 1. Download the most recent release.
 2. Unzip the release file and place *UDIM Tile Combiner.jsxbin* and the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder in the Photoshop scripts folder. *README.md* can be deleted.
-3. Edit the permissions of the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder— for Users, give the permission to write. This is to enable the active settings data and the previous session data to be written in their appropriate files.  
+3. Edit the permissions of the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder— for Users, give the permission to write. This is to enable active settings data (*ActiveSettings.js*) and the previous session (*PreviousSessionSettings.js*) to be written to the appropriate files.  
 4. Open Photoshop and browse to File > Scripts. *UDIM Tile Combiner* should show up as a script available to run.
 
 #### If you don’t have administrator permissions:
