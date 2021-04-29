@@ -48,13 +48,13 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 Default radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*.
 
-Previous Session radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*.
+Previous Session radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*. *PreviousSessionSettings.js* is written to at the end of each complete script run, saving the script settings used.
 
-User Defined Preferences radio button— If selected, loads in the script settings saved in whatever file the load button has set the script to point to (the default is *UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js*).
+User Defined Preferences radio button— If selected, loads in the script settings from whatever file the load button is pointing to (the default is *UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js*).
 
-Set button— Takes a snapshot of the current script settings and creates a new settings file with that information. The user selects what folder to save the file in, and what name the file should have (the file type will be .js). The script will automatically set this new file as the user set setting file to reference if the User Defined Preferences radio button is clicked. 
+Set button— Takes a snapshot of the current script settings and creates a new settings file with that information. The user selects what folder to save that file in, and what name the file should have (but the file type will always be .js). The script will automatically set this new file as the user set setting file to reference if the User Defined Preferences radio button is clicked. 
 
-Load button— Opens a file selection dialog to allow the user to select a user set settings file. The settings saved within that file will then update the current script settings, and will update the script with those settings each time the User Defined Preferences radio button is clicked. The selected settings file will remain the file that gets referenced for the User Defined Preferences radio button until another file is selected. 
+Load button— Opens a file selection dialog to allow the user to select a user set settings file. The settings saved within that file will then update the current script settings, and will update the script with those settings each time the User Defined Preferences radio button is clicked. The selected settings file will remain the file that gets referenced for the User Defined Preferences radio button until another file is selected, as the selected settings file path gets written to *ActiveSettings.js* at the end of every script run and then gets referenced at the beginning of each instance of the script thereafter. 
 
 Reset Current Folder Paths button— Any source folder selected and any destination folder selected will be reset to no entry. 
 
