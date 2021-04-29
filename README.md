@@ -46,19 +46,6 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 #### Tile Combiner Settings to Load
 
-The **Tile Combiner Settings to Load** section is an ease-of-use feature that allows the user to load in script settings from various settings files. These setting files are located in the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder, which the script is coded to reference **only if** the folder and the *UDIM Tile Combiner.jsxbin* file are at the same level of whatever folder structure they are placed in. Likewise, the various settings files are located in the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder, which the script is coded to reference **only if** they are in that particular folder. 
-
-The various setting files are the following:
-
-* *DefaultSettings.js*— a static file (unless the user changes it themselves)
-
-* *PreviousSession.js*— gets written to at the end of every run of the texture combining script
-
-* *UserSetSettings.js*— 
-
-* *ActiveSettings.js*—
-
-
 **Default** radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*.
 
 **Previous Session** radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*.
@@ -77,4 +64,4 @@ The various setting files are the following:
 
 **“Script completed!” alert** checkbox— If enabled, an alert will run at the end of the combining process. 
 
-**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
+**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite.
