@@ -6,14 +6,14 @@
 
 This script was written and tested on only a Windows computer. I have done my best to make the script work for MacOS, but there may be issues. Likewise only installation instructions for Windows are listed, but MacOS shouldn’t be much different.
 
-The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and forwards compatibility is likely, but not guaranteed
+The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and forwards compatibility is likely, but not guaranteed.
 
 ## Installation Instructions
 
 ### Windows
 
 #### If you have administrator permissions:
-1. Download the most recent release
+1. Download the most recent release.
 2. Unzip the release file and place *UDIM Tile Combiner.jsxbin* and the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder in the Photoshop scripts folder. *README.md* can be deleted.
 3. Edit the permissions of the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder— for Users, give the permission to write. This is to enable the active settings data and the previous session data to be written in their appropriate files.  
 4. Open Photoshop and browse to File > Scripts. *UDIM Tile Combiner* should show up as a script available to run.
@@ -35,8 +35,8 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 ![UDIM_Tile_Combiner_UI_Numbered](https://user-images.githubusercontent.com/83183389/116453204-98c4e500-a82c-11eb-98db-66bf6a7f3e97.png)
 
 1. Select a source folder, which should contain the texture maps exported from Substance Painter. 
-2. Select a destination folder, in which the combined images will be saved to.
-3. Choose which tile setting the script should work with when combining texture maps and change the UDIM tile number values if need be. 
+2. Select a destination folder, into which the combined images will be saved.
+3. Choose which tile setting the script should work with when combining texture maps and change the UDIM tile number values if necessary. 
 4. Add or remove material channel sort terms the script should work with when combining texture maps. 
 5. Change or remove the combined texture maps’ save name prefix (the default is “Prefix_”).
 6. Select which file type to save the combined texture maps as (the default is .png).
@@ -46,13 +46,24 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 #### Tile Combiner Settings to Load
 
-// Explanation of section
+The **Tile Combiner Settings to Load** section is an ease-of-use feature that allows the user to load in script settings from various settings files. These setting files are located in the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder, which the script is coded to reference **only if** the folder and the *UDIM Tile Combiner.jsxbin* file are at the same level of whatever folder structure they are placed in. Likewise, the various settings files are located in the *UDIM Tile Combiner Script for Photoshop Library Scripts Only* folder, which the script is coded to reference **only if** they are in that particular folder. 
 
-**Default** radio button— If selected, loads in the script settings saved in UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js
+The various setting files are the following:
 
-**Previous Session** radio button— If selected, loads in the script settings saved in UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js
+* *DefaultSettings.js*— a static file (unless the user changes it themselves)
 
-**User Defined Preferences** radio button— If selected, loads in the script settings saved in whatever file the load button has set the script to point to (the default is  UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js
+* *PreviousSession.js*— gets written to at the end of every run of the texture combining script
+
+* *UserSetSettings.js*— 
+
+* *ActiveSettings.js*—
+
+
+**Default** radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*.
+
+**Previous Session** radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*.
+
+**User Defined Preferences** radio button— If selected, loads in the script settings saved in whatever file the load button has set the script to point to (the default is *UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js*).
 
 **Set** button— Takes a snapshot of the current script settings, and creates a new settings file. The user selects what folder to save the file in, and what name the file should have (the file type will be .js). The script will automatically set this new file as the user set setting file to reference if the User Defined Preferences radio button is clicked. 
 
@@ -66,4 +77,4 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 **“Script completed!” alert** checkbox— If enabled, an alert will run at the end of the combining process. 
 
-**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite.
+**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
