@@ -37,7 +37,7 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 1. Select a source folder, which should contain the texture maps exported from Substance Painter. 
 2. Select a destination folder, into which the combined images will be saved.
 3. Choose which tile setting the script should work with when combining texture maps and change the UDIM tile number values if necessary. 
-4. Add or remove material channel sort terms the script should work with when combining texture maps. 
+4. Add or remove material channel sort terms the script should work with when combining texture maps. Separate each sort term by a comma and space. 
 5. Change or remove the combined texture maps’ save name prefix (the default is “Prefix_”).
 6. Select which file type to save the combined texture maps as (the default is .png).
 7. Run the script!
@@ -46,7 +46,7 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 #### Tile Combiner Settings to Load
 
-Default radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*.
+Default radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*. *DefaultSettings.js* is never written to by the script, but can be edited by the user to change default settings. 
 
 Previous Session radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*. *PreviousSessionSettings.js* is written to at the end of each complete script run, saving the script settings used.
 
