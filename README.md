@@ -46,22 +46,22 @@ The script was only tested on Photoshop CC versions 2019 and 2020. Backwards and
 
 #### Tile Combiner Settings to Load
 
-**Default** radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*.
+_**Default**_ radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/DefaultSettings.js*.
 
-**Previous Session** radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*.
+_**Previous Session**_ radio button— If selected, loads in the script settings saved in *UDIM Tile Combiner Script for Photoshop Library Scripts Only/PreviousSessionSettings.js*.
 
-**User Defined Preferences** radio button— If selected, loads in the script settings saved in whatever file the load button has set the script to point to (the default is *UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js*).
+_**User Defined Preferences**_ radio button— If selected, loads in the script settings saved in whatever file the load button has set the script to point to (the default is *UDIM Tile Combiner Script for Photoshop Library Scripts Only/UserSetSettings.js*).
 
-**Set** button— Takes a snapshot of the current script settings, and creates a new settings file. The user selects what folder to save the file in, and what name the file should have (the file type will be .js). The script will automatically set this new file as the user set setting file to reference if the User Defined Preferences radio button is clicked. 
+_**Set**_ button— Takes a snapshot of the current script settings, and creates a new settings file. The user selects what folder to save the file in, and what name the file should have (the file type will be .js). The script will automatically set this new file as the user set setting file to reference if the User Defined Preferences radio button is clicked. 
 
-**Load** button— Opens a file selection dialog to allow the user to select a user set settings file. The settings saved within that file will then update the current script settings, and will update the script with those settings each time the User Defined Preferences radio button is clicked. The selected settings file will remain the file that gets referenced for the User Defined Preferences radio button until another file is selected. 
+_**Load**_ button— Opens a file selection dialog to allow the user to select a user set settings file. The settings saved within that file will then update the current script settings, and will update the script with those settings each time the User Defined Preferences radio button is clicked. The selected settings file will remain the file that gets referenced for the User Defined Preferences radio button until another file is selected. 
 
-**Reset Current Folder Paths** button— Any source folder selected and any destination folder selected will be reset to no entry. 
+_**Reset Current Folder Paths**_ button— Any source folder selected and any destination folder selected will be reset to no entry. 
 
 #### Other Script Settings
 
-**Folder selection shortcut mode** checkbox— If enabled, the second folder selection dialog (the destination folder, typically) will open with the file path of the first folder selection (the source folder, typically). If disabled, the folder selection dialog will always open at the desktop. 
+_**Folder selection shortcut mode**_ checkbox— If enabled, the second folder selection dialog (the destination folder, typically) will open with the file path of the first folder selection (the source folder, typically). If disabled, the folder selection dialog will always open at the desktop. 
 
-**“Script completed!” alert** checkbox— If enabled, an alert will run at the end of the combining process. 
+_**“Script completed!” alert**_ checkbox— If enabled, an alert will run at the end of the combining process. 
 
-**Ignore image overwriting warnings** checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite.
+_**Ignore image overwriting warnings**_ checkbox— If enabled, the combining script will ignore any image overwrite warnings. If disabled, an alert will sound for each image overwritten, requiring the user to allow or skip the overwrite. 
